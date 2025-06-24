@@ -1,6 +1,7 @@
 package com.kicklance.fursaty.ui.home;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kicklance.fursaty.R;
 import com.kicklance.fursaty.models.Job;
+import com.kicklance.fursaty.ui.job_details.JobDetailsActivity;
 import com.kicklance.fursaty.utils.Constants;
 
 import java.util.List;
@@ -96,9 +98,9 @@ public class HomeFragment extends Fragment {
         return new JobAdapter.OnJobInteractionListener() {
             @Override
             public void onJobClick(Job job) {
-                // Handle item click
-                Toast.makeText(requireContext(), "Clicked: " + job.getTitle(), Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(requireContext(), JobDetailsActivity.class);
+                intent.putExtra(JobDetailsActivity.EXTRA_JOB, job);
+                startActivity(intent);
             }
 
             @Override

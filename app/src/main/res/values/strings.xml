@@ -8,7 +8,23 @@
     <string name="menu_search">Search</string>
     <string name="menu_filter">Filter</string>
     <string name="menu_notifications">Notifications</string>
+    <string name="menu_back">Back</string>
 
     <string name="welcome">Welcome</string>
     <string name="welcome_name">Mr/Mam Visitor</string>
+
+    <string name="details">Details</string>
+    <string name="job_Type">Job Type</string>
+    <string name="work_field">Work Field</string>
+    <string name="country_of_employment">Country of Employment</string>
+    <string name="salary_wage">Salary / Wage</string>
+    <string name="required_experience">Required Experience</string>
+    <string name="skills">skills</string>
+    <string name="job_description">Job Description</string>
+    <string name="candidate_requirements">Candidate Requirements</string>
+    <string name="nationality">Nationality</string>
+    <string name="country_residence">Country Residence</string>
+    <string name="gender">Gender</string>
+    <string name="apply">Apply</string>
+
 </resources>

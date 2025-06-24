@@ -1,9 +1,25 @@
 package com.kicklance.fursaty.models;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
-public class Job {
+public class Job implements Parcelable {
+    public static final Creator<Job> CREATOR = new Creator<>() {
+        @Override
+        public Job createFromParcel(Parcel in) {
+            return new Job(in);
+        }
+
+        @Override
+        public Job[] newArray(int size) {
+            return new Job[size];
+        }
+    };
     private final int id;
     private final String title;
     private final List<String> skills;
@@ -47,6 +63,23 @@ public class Job {
         this.workField = workField;
         this.salary = salary;
         this.businessMan = businessMan;
+    }
+
+    protected Job(Parcel in) {
+        id = in.readInt();
+        title = in.readString();
+        skills = in.createStringArrayList();
+        jobValidUntil = in.readString();
+        summary = in.readString();
+        country = in.readParcelable(Country.class.getClassLoader());
+        experienceYears = in.readString();
+        isFavorite = in.readByte() != 0;
+        createTime = in.readString();
+        expireDate = in.readInt();
+        watchesCount = in.readInt();
+        workField = in.readParcelable(WorkField.class.getClassLoader());
+        salary = in.readString();
+        businessMan = in.readParcelable(BusinessMan.class.getClassLoader());
     }
 
     public int getId() {
@@ -105,7 +138,41 @@ public class Job {
         return businessMan;
     }
 
-    public static class Country {
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(title);
+        parcel.writeStringList(skills);
+        parcel.writeString(jobValidUntil);
+        parcel.writeString(summary);
+        parcel.writeParcelable(country, i);
+        parcel.writeString(experienceYears);
+        parcel.writeByte((byte) (isFavorite ? 1 : 0));
+        parcel.writeString(createTime);
+        parcel.writeInt(expireDate);
+        parcel.writeInt(watchesCount);
+        parcel.writeParcelable(workField, i);
+        parcel.writeString(salary);
+        parcel.writeParcelable(businessMan, i);
+    }
+
+    public static class Country implements Parcelable {
+        public static final Creator<Country> CREATOR = new Creator<>() {
+            @Override
+            public Country createFromParcel(Parcel in) {
+                return new Country(in);
+            }
+
+            @Override
+            public Country[] newArray(int size) {
+                return new Country[size];
+            }
+        };
         private final int id;
         private final String code;
         private final String prefixNumber;
@@ -118,6 +185,14 @@ public class Job {
             this.prefixNumber = prefixNumber;
             this.countryImage = countryImage;
             this.name = name;
+        }
+
+        protected Country(Parcel in) {
+            id = in.readInt();
+            code = in.readString();
+            prefixNumber = in.readString();
+            countryImage = in.readString();
+            name = in.readString();
         }
 
         public int getId() {
@@ -139,15 +214,45 @@ public class Job {
         public String getName() {
             return name;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
+            parcel.writeInt(id);
+            parcel.writeString(code);
+            parcel.writeString(prefixNumber);
+            parcel.writeString(countryImage);
+            parcel.writeString(name);
+        }
     }
 
-    public static class WorkField {
+    public static class WorkField implements Parcelable {
+        public static final Creator<WorkField> CREATOR = new Creator<>() {
+            @Override
+            public WorkField createFromParcel(Parcel in) {
+                return new WorkField(in);
+            }
+
+            @Override
+            public WorkField[] newArray(int size) {
+                return new WorkField[size];
+            }
+        };
         private final int id;
         private final String name;
 
         public WorkField(int id, String name) {
             this.id = id;
             this.name = name;
+        }
+
+        protected WorkField(Parcel in) {
+            id = in.readInt();
+            name = in.readString();
         }
 
         public int getId() {
@@ -157,9 +262,31 @@ public class Job {
         public String getName() {
             return name;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
+            parcel.writeInt(id);
+            parcel.writeString(name);
+        }
     }
 
-    public static class BusinessMan {
+    public static class BusinessMan implements Parcelable {
+        public static final Creator<BusinessMan> CREATOR = new Creator<>() {
+            @Override
+            public BusinessMan createFromParcel(Parcel in) {
+                return new BusinessMan(in);
+            }
+
+            @Override
+            public BusinessMan[] newArray(int size) {
+                return new BusinessMan[size];
+            }
+        };
         private final int id;
         private final String name;
         private final int employeeNo;
@@ -179,6 +306,17 @@ public class Job {
             this.imageUrl = imageUrl;
             this.coverUrl = coverUrl;
             this.countryId = countryId;
+        }
+
+        protected BusinessMan(Parcel in) {
+            id = in.readInt();
+            name = in.readString();
+            employeeNo = in.readInt();
+            typeBusiness = in.readString();
+            bio = in.readString();
+            imageUrl = in.readString();
+            coverUrl = in.readString();
+            countryId = in.readInt();
         }
 
         public int getId() {
@@ -211,6 +349,23 @@ public class Job {
 
         public int getCountryId() {
             return countryId;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
+            parcel.writeInt(id);
+            parcel.writeString(name);
+            parcel.writeInt(employeeNo);
+            parcel.writeString(typeBusiness);
+            parcel.writeString(bio);
+            parcel.writeString(imageUrl);
+            parcel.writeString(coverUrl);
+            parcel.writeInt(countryId);
         }
     }
 }

@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.job_details.JobDetailsActivity">
+
+    <include
+        android:id="@+id/_toolbar"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/_toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/layout_margin">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="0dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp">
+
+                        <LinearLayout
+                            android:id="@+id/_job_create_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_job_create_time"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                app:srcCompat="@drawable/ic_earth" />
+
+
+                            <TextView
+                                android:id="@+id/job_create_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/layout_margin"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:text="30 min" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/job_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/layout_margin"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintTop_toBottomOf="@id/_job_create_time"
+                            tools:text="Web and Mobile Development" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_business_man"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_registration"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tv_business_man"
+                            tools:srcCompat="@drawable/ic_business_man" />
+
+                        <TextView
+                            android:id="@+id/tv_business_man"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@id/tv_registration"
+                            app:layout_constraintStart_toEndOf="@id/iv_business_man"
+                            app:layout_constraintTop_toBottomOf="@id/job_title"
+                            tools:text="PURE for IT Solutions" />
+
+                        <TextView
+                            android:id="@+id/tv_registration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="(1012416)"
+                            android:textSize="11sp"
+                            app:layout_constraintEnd_toStartOf="@id/iv_watches_count"
+                            app:layout_constraintStart_toStartOf="@id/tv_business_man"
+                            app:layout_constraintTop_toBottomOf="@id/tv_business_man" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_watches_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_registration"
+                            app:layout_constraintStart_toEndOf="@id/tv_registration"
+                            app:layout_constraintTop_toTopOf="@id/tv_registration"
+                            app:srcCompat="@drawable/ic_eye" />
+
+                        <TextView
+                            android:id="@+id/tv_watches_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toBottomOf="@id/tv_registration"
+                            app:layout_constraintStart_toEndOf="@id/iv_watches_count"
+                            app:layout_constraintTop_toTopOf="@id/tv_registration"
+                            tools:text="21 K" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_share"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/badge_background"
+                            android:backgroundTint="#E0EAF2"
+                            android:scaleType="center"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_business_man"
+                            app:layout_constraintEnd_toStartOf="@id/iv_bookmark"
+                            app:layout_constraintTop_toTopOf="@id/iv_business_man"
+                            app:srcCompat="@drawable/ic_share" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_bookmark"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/badge_background"
+                            android:backgroundTint="#DBECEC"
+                            android:scaleType="center"
+                            app:layout_constraintBottom_toBottomOf="@id/iv_business_man"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/iv_business_man"
+                            app:srcCompat="@drawable/ic_bookmark_outline" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_bookmarked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|end"
+                        android:layout_marginEnd="@dimen/layout_margin"
+                        app:srcCompat="@drawable/ic_bookmarked" />
+
+                </FrameLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/lbl_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/details"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/card_details" />
+
+            <FrameLayout
+                android:id="@+id/_job_Type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/lbl_details">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/job_Type"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/job_Type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    tools:text="100$ - 250$" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/_work_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/_job_Type">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/work_field"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/work_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    tools:text="Information Technology" />
+
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/_country_of_employment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/_work_field">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/country_of_employment"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/country_of_employment_flag"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="@dimen/layout_margin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/country_of_employment"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_earth" />
+
+                <TextView
+                    android:id="@+id/country_of_employment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Kuwait" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/_salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/_country_of_employment">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/salary_wage"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/job_salary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    tools:text="2.5K - 5k KWD / Month" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/_experience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/_salary">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/required_experience"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/experience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    tools:text="2 - 5 Years" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/lbl_skills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/skills"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/_experience" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/_skills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/lbl_skills">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/job_skill_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:backgroundTint="#DBECEC"
+                    android:lines="1"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="2dp"
+                    android:textColor="@color/colorPrimary"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/job_skill_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Java" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/job_skill_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:backgroundTint="#DBECEC"
+                    android:lines="1"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="2dp"
+                    android:textColor="@color/colorPrimary"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/job_skill_1"
+                    app:layout_constraintEnd_toStartOf="@id/job_skill_3"
+                    app:layout_constraintStart_toEndOf="@id/job_skill_1"
+                    app:layout_constraintTop_toTopOf="@id/job_skill_1"
+                    tools:text="Java Script" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/job_skill_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:backgroundTint="#DBECEC"
+                    android:lines="1"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="2dp"
+                    android:textColor="@color/colorPrimary"
+                    app:cornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/job_skill_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/job_skill_2"
+                    app:layout_constraintTop_toTopOf="@id/job_skill_1"
+                    tools:text="Bootstrap" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/lbl_job_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/job_description"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/_skills" />
+
+            <FrameLayout
+                android:id="@+id/_job_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/lbl_job_description">
+
+                <TextView
+                    android:id="@+id/job_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    tools:text="Lorem ipsum dolor sit amet, consetetur sadipsg elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/lbl_candidate_requirements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/candidate_requirements"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/_job_description" />
+
+            <FrameLayout
+                android:id="@+id/_nationality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/lbl_candidate_requirements">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/nationality"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/nationality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    tools:text="Kuwait, Palestinian, Indian" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/_country_residence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/_nationality">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/country_residence"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/country_residence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    tools:text="Egypt , Jordan, Indian" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/card_bg"
+                android:minHeight="40dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/_country_residence">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/gender"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:textSize="14sp"
+                    tools:text="All" />
+
+            </FrameLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/apply"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/_gender" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
