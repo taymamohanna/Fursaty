@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="@string/take_action"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/action_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/card_bg"
+        android:clickable="true"
+        android:drawablePadding="12dp"
+        android:focusable="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="@string/action_call"
+        android:textAlignment="viewStart"
+        android:textColor="@color/button_text_secondary"
+        android:textSize="14sp"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+        app:drawableStartCompat="@drawable/ic_action_call" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/action_sms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:background="@drawable/card_bg"
+        android:clickable="true"
+        android:drawablePadding="12dp"
+        android:focusable="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="@string/action_sms"
+        android:textAlignment="viewStart"
+        android:textColor="@color/button_text_secondary"
+        android:textSize="14sp"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+        app:drawableStartCompat="@drawable/ic_action_sms" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/action_whatsapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginBottom="@dimen/layout_margin"
+        android:background="@drawable/card_bg"
+        android:clickable="true"
+        android:drawablePadding="12dp"
+        android:focusable="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="@string/action_whatsapp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/button_text_secondary"
+        android:textSize="14sp"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+        app:drawableStartCompat="@drawable/ic_action_whatsapp" />
+</LinearLayout>

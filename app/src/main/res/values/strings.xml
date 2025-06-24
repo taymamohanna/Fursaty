@@ -9,6 +9,7 @@
     <string name="menu_filter">Filter</string>
     <string name="menu_notifications">Notifications</string>
     <string name="menu_back">Back</string>
+    <string name="menu_more">More</string>
 
     <string name="welcome">Welcome</string>
     <string name="welcome_name">Mr/Mam Visitor</string>
@@ -21,6 +22,7 @@
     <string name="required_experience">Required Experience</string>
     <string name="skills">skills</string>
     <string name="job_description">Job Description</string>
+    <string name="read_more">Read More</string>
     <string name="candidate_requirements">Candidate Requirements</string>
     <string name="nationality">Nationality</string>
     <string name="country_residence">Country Residence</string>
@@ -32,5 +34,19 @@
     <string name="country">Country</string>
     <string name="bio">BIO</string>
     <string name="recent_jobs">Recent Jobs</string>
+
+    <string name="take_action">Take Action</string>
+    <string name="action_call">Call</string>
+    <string name="action_sms">Send SMS</string>
+    <string name="action_whatsapp">WhatsApp</string>
+
+    <string name="auth_required_title">NOT Registered</string>
+    <string name="auth_required_msg">You Are not a member Yet, Do you have an account?</string>
+    <string name="action_login">Login</string>
+    <string name="action_sign_up">Sign Up</string>
+
+    <string name="language_title">Language Preference</string>
+    <string name="language_ar">العربية</string>
+    <string name="language_en">English</string>
 
 </resources>

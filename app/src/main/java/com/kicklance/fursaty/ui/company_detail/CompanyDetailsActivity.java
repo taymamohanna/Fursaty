@@ -2,9 +2,12 @@ package com.kicklance.fursaty.ui.company_detail;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,6 +22,8 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.kicklance.fursaty.R;
 import com.kicklance.fursaty.models.Job;
+import com.kicklance.fursaty.ui.dialogs.ActionBottomSheet;
+import com.kicklance.fursaty.ui.dialogs.ReadMoreBottomSheet;
 import com.kicklance.fursaty.ui.home.JobAdapter;
 import com.kicklance.fursaty.ui.job_details.JobDetailsActivity;
 import com.kicklance.fursaty.utils.Constants;
@@ -32,7 +37,7 @@ public class CompanyDetailsActivity extends AppCompatActivity {
     public static final String EXTRA_JOB = "extra_job";
 
     private ImageView companyCover, companyImage, countryFlag;
-    private TextView companyName, registration, businessType, employeeNo, country, companyBio;
+    private TextView companyName, registration, businessType, employeeNo, country, companyBio, readMore;
     private RecyclerView recyclerView;
 
     @Override
@@ -63,6 +68,7 @@ public class CompanyDetailsActivity extends AppCompatActivity {
         country = findViewById(R.id.country);
         countryFlag = findViewById(R.id.country_flag);
         companyBio = findViewById(R.id.bio);
+        readMore = findViewById(R.id.read_more);
 
         recyclerView = findViewById(R.id.home_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -79,6 +85,22 @@ public class CompanyDetailsActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_company_details, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_more) {
+            // Handle "More" action here
+            new ActionBottomSheet("1234567890").show(getSupportFragmentManager(), "ActionSheet");
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void populateUI(Job job) {
         Job.BusinessMan bm = job.getBusinessMan();
         Glide.with(companyCover.getContext()).load(bm.getCoverUrl()).placeholder(R.drawable.company_cover_placeholder).error(R.drawable.company_cover_placeholder).transform(new CenterCrop(), new RoundedCorners(20)).into(companyCover);
@@ -90,6 +112,11 @@ public class CompanyDetailsActivity extends AppCompatActivity {
         country.setText(job.getCountryOfEmployment().getName());
         Glide.with(countryFlag.getContext()).load(job.getCountryOfEmployment().getCountryImage()).error(R.drawable.ic_earth).centerCrop().into(countryFlag);
         companyBio.setText(bm.getBio());
+
+        readMore.setOnClickListener(v -> {
+            String title = getString(R.string.bio);
+            new ReadMoreBottomSheet(title, bm.getBio()).show(getSupportFragmentManager(), "DescSheet");
+        });
 
         List<Job> jobs = Constants.Jobs.getJobs().stream().filter(job1 -> job1.getBusinessMan().getId() == bm.getId()).collect(Collectors.toList());
         JobAdapter adapter = new JobAdapter(jobs, getJobClickListener());

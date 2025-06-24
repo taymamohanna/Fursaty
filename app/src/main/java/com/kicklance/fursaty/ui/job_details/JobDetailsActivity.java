@@ -2,6 +2,7 @@ package com.kicklance.fursaty.ui.job_details;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,8 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.kicklance.fursaty.R;
 import com.kicklance.fursaty.models.Job;
+import com.kicklance.fursaty.ui.dialogs.AuthBottomSheet;
+import com.kicklance.fursaty.ui.dialogs.ReadMoreBottomSheet;
 import com.kicklance.fursaty.utils.Utils;
 
 import java.util.ArrayList;
@@ -28,8 +31,9 @@ public class JobDetailsActivity extends AppCompatActivity {
     public static final String EXTRA_JOB = "extra_job";
 
     private ImageView isFavorite, businessImage, countryFlag;
-    private TextView createTime, title, summary, jobType, workField, salary, experience, country, businessName, registration, watchesCount, nationality, countryResidence, gender;
+    private TextView createTime, title, summary, readMore, jobType, workField, salary, experience, country, businessName, registration, watchesCount, nationality, countryResidence, gender;
     private List<TextView> skills;
+    private Button apply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,7 @@ public class JobDetailsActivity extends AppCompatActivity {
         country = findViewById(R.id.country_of_employment);
         countryFlag = findViewById(R.id.country_of_employment_flag);
         summary = findViewById(R.id.job_description);
+        readMore = findViewById(R.id.read_more);
 
         skills = new ArrayList<>();
         skills.add(findViewById(R.id.job_skill_1));
@@ -76,6 +81,7 @@ public class JobDetailsActivity extends AppCompatActivity {
         nationality = findViewById(R.id.nationality);
         countryResidence = findViewById(R.id.country_residence);
         gender = findViewById(R.id.gender);
+        apply = findViewById(R.id.apply);
 
         Job job = getIntent().getParcelableExtra(EXTRA_JOB);
         if (job != null) {
@@ -110,6 +116,16 @@ public class JobDetailsActivity extends AppCompatActivity {
         countryResidence.setText(job.getCountryOfEmployment().getName());
         final String mGender = "All";
         gender.setText(mGender);
+
+
+        apply.setOnClickListener(v -> {
+            new AuthBottomSheet().show(getSupportFragmentManager(), "AuthSheet");
+        });
+        readMore.setOnClickListener(v -> {
+            String title = getString(R.string.job_description);
+            new ReadMoreBottomSheet(title, job.getSummary())
+                    .show(getSupportFragmentManager(), "DescSheet");
+        });
 
     }
 
