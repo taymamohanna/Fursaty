@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kicklance.fursaty.R;
 import com.kicklance.fursaty.models.Job;
+import com.kicklance.fursaty.ui.company_detail.CompanyDetailsActivity;
 import com.kicklance.fursaty.ui.job_details.JobDetailsActivity;
 import com.kicklance.fursaty.utils.Constants;
 
@@ -105,8 +106,9 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onJobCompanyClick(Job job) {
-                // Handle company image click
-                Toast.makeText(requireContext(), "Company clicked: " + job.getBusinessMan().getName(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(requireContext(), CompanyDetailsActivity.class);
+                intent.putExtra(CompanyDetailsActivity.EXTRA_JOB, job);
+                startActivity(intent);
             }
         };
     }

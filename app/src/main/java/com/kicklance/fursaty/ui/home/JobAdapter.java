@@ -45,6 +45,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 
         holder.isFavorite.setVisibility(job.isFavorite() ? View.VISIBLE : View.GONE);
         holder.title.setText(job.getTitle());
+        holder.registration.setText(String.format(Locale.ENGLISH, "(%d)", 1012416));
         holder.watchesCount.setText(Utils.formatCount(job.getWatchesCount()));
         holder.description.setText(job.getSummary());
         holder.createTime.setText(job.getCreateTime());
@@ -67,9 +68,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
         }
         holder.expireDate.setText(String.format(Locale.ENGLISH, "Expire In : %d days ", job.getExpireDate()));
 
-        holder.share.setOnClickListener(view -> {
-            Utils.shareJob(view.getContext(), job);
-        });
+        holder.share.setOnClickListener(view -> Utils.shareJob(view.getContext(), job));
         holder.itemView.setOnClickListener(v -> listener.onJobClick(job));
         holder.businessImage.setOnClickListener(v -> listener.onJobCompanyClick(job));
 
@@ -88,7 +87,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 
     static class JobViewHolder extends RecyclerView.ViewHolder {
         View isFavorite, share;
-        TextView title, watchesCount, description, createTime, category, salary, experience, validUntil, businessName, expireDate;
+        TextView title, watchesCount, description, createTime, category, salary, experience, validUntil, businessName, registration, expireDate;
         ImageView businessImage;
         List<TextView> skills;
 
@@ -99,6 +98,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
             title = itemView.findViewById(R.id.job_title);
             businessImage = itemView.findViewById(R.id.iv_business_man);
             businessName = itemView.findViewById(R.id.tv_business_man);
+            registration = itemView.findViewById(R.id.tv_registration);
             watchesCount = itemView.findViewById(R.id.tv_watches_count);
             description = itemView.findViewById(R.id.job_description);
             createTime = itemView.findViewById(R.id.job_create_time);

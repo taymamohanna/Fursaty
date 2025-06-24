@@ -14,7 +14,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/_toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -105,11 +106,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="(1012416)"
                             android:textSize="11sp"
                             app:layout_constraintEnd_toStartOf="@id/iv_watches_count"
                             app:layout_constraintStart_toStartOf="@id/tv_business_man"
-                            app:layout_constraintTop_toBottomOf="@id/tv_business_man" />
+                            app:layout_constraintTop_toBottomOf="@id/tv_business_man"
+                            tools:text="(1012416)" />
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/iv_watches_count"
@@ -445,7 +446,7 @@
                     android:id="@+id/job_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end|center_vertical"
+                    android:layout_gravity="start|center_vertical"
                     android:textSize="14sp"
                     tools:text="Lorem ipsum dolor sit amet, consetetur sadipsg elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." />
 

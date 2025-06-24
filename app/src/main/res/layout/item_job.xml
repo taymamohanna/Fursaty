@@ -72,22 +72,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="PURE for IT Solutions"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@id/tv_registration"
                 app:layout_constraintStart_toEndOf="@id/iv_business_man"
-                app:layout_constraintTop_toBottomOf="@id/job_title" />
+                app:layout_constraintTop_toBottomOf="@id/job_title"
+                tools:text="PURE for IT Solutions" />
 
             <TextView
                 android:id="@+id/tv_registration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="(1012416)"
                 android:textSize="11sp"
                 app:layout_constraintEnd_toStartOf="@id/iv_watches_count"
                 app:layout_constraintStart_toStartOf="@id/tv_business_man"
-                app:layout_constraintTop_toBottomOf="@id/tv_business_man" />
+                app:layout_constraintTop_toBottomOf="@id/tv_business_man"
+                tools:text="(1012416)" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_watches_count"

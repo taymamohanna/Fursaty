@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fursaty"
         tools:targetApi="31">
-
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
@@ -24,9 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.job_details.JobDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.company_detail.CompanyDetailsActivity"
             android:exported="false" />
 
         <meta-data

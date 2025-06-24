@@ -21,13 +21,14 @@ import com.kicklance.fursaty.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class JobDetailsActivity extends AppCompatActivity {
 
     public static final String EXTRA_JOB = "extra_job";
 
     private ImageView isFavorite, businessImage, countryFlag;
-    private TextView createTime, title, summary, jobType, workField, salary, experience, country, businessName, watchesCount, nationality, countryResidence, gender;
+    private TextView createTime, title, summary, jobType, workField, salary, experience, country, businessName, registration, watchesCount, nationality, countryResidence, gender;
     private List<TextView> skills;
 
     @Override
@@ -54,6 +55,7 @@ public class JobDetailsActivity extends AppCompatActivity {
         businessImage = findViewById(R.id.iv_business_man);
         title = findViewById(R.id.job_title);
         businessName = findViewById(R.id.tv_business_man);
+        registration = findViewById(R.id.tv_registration);
         watchesCount = findViewById(R.id.tv_watches_count);
         View share = findViewById(R.id.iv_share);
 
@@ -88,6 +90,7 @@ public class JobDetailsActivity extends AppCompatActivity {
         title.setText(job.getTitle());
         Glide.with(businessImage.getContext()).load(job.getBusinessMan().getImageUrl()).placeholder(R.drawable.ic_business_man).transform(new CenterCrop(), new RoundedCorners(20)).into(businessImage);
         businessName.setText(job.getBusinessMan().getName());
+        registration.setText(String.format(Locale.ENGLISH, "(%d)", 1012416));
         watchesCount.setText(Utils.formatCount(job.getWatchesCount()));
 
         jobType.setText(job.getWorkField().getName());

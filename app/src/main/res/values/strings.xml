@@ -27,4 +27,10 @@
     <string name="gender">Gender</string>
     <string name="apply">Apply</string>
 
+    <string name="type_of_business">Type of Business</string>
+    <string name="no_of_employees">No. of Employees</string>
+    <string name="country">Country</string>
+    <string name="bio">BIO</string>
+    <string name="recent_jobs">Recent Jobs</string>
+
 </resources>
