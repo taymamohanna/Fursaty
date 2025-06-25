@@ -1,5 +1,6 @@
 package com.kicklance.fursaty.utils;
 
+import com.kicklance.fursaty.models.FAQ;
 import com.kicklance.fursaty.models.Job;
 
 import java.util.ArrayList;
@@ -91,5 +92,23 @@ public class Constants {
             return jobs;
         }
 
+    }
+
+    public static class FAQs {
+
+        public static List<FAQ> getSampleFAQs() {
+            return Arrays.asList(
+                    new FAQ(1, "How do I apply for a job?", "Click the 'Apply' button on the job details screen."),
+                    new FAQ(2, "Can I edit my profile later?", "Yes, from the Settings menu."),
+                    new FAQ(3, "Is my personal data secure?", "We use encryption and secure storage."),
+                    new FAQ(4, "How do I change the app language?", "Go to Settings > Language Preference."),
+                    new FAQ(5, "What is the job watchlist?", "Save jobs to view or apply later."),
+                    new FAQ(6, "How do I contact support?", "Use Help & Feedback in Settings."),
+                    new FAQ(7, "Can I apply to multiple jobs?", "Yes, apply to as many as you like."),
+                    new FAQ(8, "What happens after I apply?", "Employers may contact you directly."),
+                    new FAQ(9, "How do I receive notifications?", "Enable them in Notification Settings."),
+                    new FAQ(10, "Is the app free to use?", "Yes, it's completely free for job seekers.")
+            );
+        }
     }
 }

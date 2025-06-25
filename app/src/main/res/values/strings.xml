@@ -53,4 +53,28 @@
     <string name="notification_enable_title">General Push Notifications</string>
     <string name="notification_enable_subtitle">Receive general updates and notifications</string>
 
+    <string name="settings_general">General Settings</string>
+    <string name="settings_country">Job Preference Country</string>
+    <string name="settings_faq">FAQs</string>
+    <string name="settings_help_feedback">Help &amp; Feedback</string>
+    <string name="settings_privacy">Privacy Policy</string>
+    <string name="settings_language">Language Preference</string>
+    <string name="settings_notifications">Notification Settings</string>
+
+    <string name="privacy_policy">
+    Your privacy is important to us. This policy explains how we collect, use, and protect your data. We only gather information necessary to provide and improve our services. All data is stored securely and never shared with third parties without your consent.
+    \n\n We may collect usage statistics to enhance user experience, but we do not track personal behavior across other apps or websites. You can review, update, or delete your data at any time through your account settings.
+    \n\n By using our app, you agree to the terms outlined in this policy. We encourage you to review it regularly, as we may update it to reflect changes in legal or operational requirements.
+    \n\n We implement industry-standard security measures to safeguard your information, including encryption, access controls, and regular audits. Our team is committed to maintaining transparency and accountability in how we handle your data.
+    \n\n If you have any questions or concerns about your privacy, you can contact our support team at any time. We are here to ensure your trust and confidence in our platform.
+    </string>
+
+    <string name="help_feedback_msg">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="subject">Subject</string>
+    <string name="upload_images_msg">Upload The Offer Images/Videso upto 5 files</string>
+    <string name="send">Send</string>
+
+
 </resources>

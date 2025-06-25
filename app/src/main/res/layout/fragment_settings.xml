@@ -1,6 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/settings_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:text="@string/nav_settings"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_job_country"
+        style="@style/SettingItemStyle"
+        android:text="@string/settings_country"
+        app:drawableStartCompat="@drawable/ic_flag" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_faqs"
+        style="@style/SettingItemStyle"
+        android:text="@string/settings_faq"
+        app:drawableStartCompat="@drawable/ic_faq" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_help_feedback"
+        style="@style/SettingItemStyle"
+        android:text="@string/settings_help_feedback"
+        app:drawableStartCompat="@drawable/ic_help_feedback" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_privacy"
+        style="@style/SettingItemStyle"
+        android:text="@string/settings_privacy"
+        app:drawableStartCompat="@drawable/ic_privacy" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_language"
+        style="@style/SettingItemStyle"
+        android:text="@string/settings_language"
+        app:drawableStartCompat="@drawable/ic_language" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_notifications"
+        style="@style/SettingItemStyle"
+        android:text="@string/settings_notifications"
+        app:drawableStartCompat="@drawable/ic_settings_notifications" />
+
+</LinearLayout>

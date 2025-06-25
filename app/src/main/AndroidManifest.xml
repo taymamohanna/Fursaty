@@ -29,6 +29,12 @@
         <activity
             android:name=".ui.company_detail.CompanyDetailsActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.faq.FAQsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.help_feedback.HelpFeedbackActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
