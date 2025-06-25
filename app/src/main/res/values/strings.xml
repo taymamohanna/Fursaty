@@ -49,4 +49,8 @@
     <string name="language_ar">العربية</string>
     <string name="language_en">English</string>
 
+    <string name="notification_settings">Notification Settings</string>
+    <string name="notification_enable_title">General Push Notifications</string>
+    <string name="notification_enable_subtitle">Receive general updates and notifications</string>
+
 </resources>
