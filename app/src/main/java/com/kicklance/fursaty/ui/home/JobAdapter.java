@@ -63,8 +63,12 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
                 .into(holder.businessImage);
 
         for (int i = 0; i < holder.skills.size(); i++) {
-            if (job.getSkills().isEmpty() || job.getSkills().size() == i) return;
-            holder.skills.get(i).setText(job.getSkills().get(i));
+            TextView tvSkill = holder.skills.get(i);
+            if (job.getSkills().size() <= i) {
+                tvSkill.setVisibility(View.GONE);
+                continue;
+            }
+            tvSkill.setText(job.getSkills().get(i));
         }
         holder.expireDate.setText(String.format(Locale.ENGLISH, "Expire In : %d days ", job.getExpireDate()));
 
@@ -85,7 +89,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
         void onJobCompanyClick(Job job);
     }
 
-    static class JobViewHolder extends RecyclerView.ViewHolder {
+    public static class JobViewHolder extends RecyclerView.ViewHolder {
         View isFavorite, share;
         TextView title, watchesCount, description, createTime, category, salary, experience, validUntil, businessName, registration, expireDate;
         ImageView businessImage;

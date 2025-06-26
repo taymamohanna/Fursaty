@@ -107,8 +107,12 @@ public class JobDetailsActivity extends AppCompatActivity {
         Glide.with(countryFlag.getContext()).load(job.getCountryOfEmployment().getCountryImage()).placeholder(R.drawable.ic_earth).transform(new CenterCrop(), new RoundedCorners(20)).into(countryFlag);
 
         for (int i = 0; i < skills.size(); i++) {
-            if (job.getSkills().isEmpty() || job.getSkills().size() == i) return;
-            skills.get(i).setText(job.getSkills().get(i));
+            TextView tvSkill = skills.get(i);
+            if (job.getSkills().size() <= i) {
+                tvSkill.setVisibility(View.GONE);
+                continue;
+            }
+            tvSkill.setText(job.getSkills().get(i));
         }
 
         summary.setText(job.getSummary());
@@ -118,9 +122,7 @@ public class JobDetailsActivity extends AppCompatActivity {
         gender.setText(mGender);
 
 
-        apply.setOnClickListener(v -> {
-            new AuthBottomSheet().show(getSupportFragmentManager(), "AuthSheet");
-        });
+        apply.setOnClickListener(v -> new AuthBottomSheet().show(getSupportFragmentManager(), "AuthSheet"));
         readMore.setOnClickListener(v -> {
             String title = getString(R.string.job_description);
             new ReadMoreBottomSheet(title, job.getSummary())

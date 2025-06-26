@@ -6,7 +6,10 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Job implements Parcelable {
     public static final Creator<Job> CREATOR = new Creator<>() {
@@ -22,22 +25,31 @@ public class Job implements Parcelable {
     };
     private final int id;
     private final String title;
-    private final List<String> skills;
+    private final List<WorkField> skills;
+    @SerializedName("job_valid_unite")
     private final String jobValidUntil;
     private final String summary;
+    @SerializedName("country_of_employment")
     private final Country country;
+    @SerializedName("experience_years")
     private final String experienceYears;
+    @SerializedName("is_favorite")
     private final boolean isFavorite;
+    @SerializedName("create_time")
     private final String createTime;
+    @SerializedName("expire_date")
     private final int expireDate;
+    @SerializedName("watches_count")
     private final int watchesCount;
+    @SerializedName("work_field")
     private final WorkField workField;
     private final String salary;
+    @SerializedName("business_man")
     private final BusinessMan businessMan;
 
     public Job(int id,
                String title,
-               List<String> skills,
+               List<WorkField> skills,
                String jobValidUntil,
                String summary,
                Country country,
@@ -68,7 +80,7 @@ public class Job implements Parcelable {
     protected Job(Parcel in) {
         id = in.readInt();
         title = in.readString();
-        skills = in.createStringArrayList();
+        skills = in.createTypedArrayList(WorkField.CREATOR);
         jobValidUntil = in.readString();
         summary = in.readString();
         country = in.readParcelable(Country.class.getClassLoader());
@@ -91,7 +103,7 @@ public class Job implements Parcelable {
     }
 
     public List<String> getSkills() {
-        return skills;
+        return skills.stream().map(s -> s.name).collect(Collectors.toList());
     }
 
     public String getJobValidUntil() {
@@ -147,7 +159,7 @@ public class Job implements Parcelable {
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         parcel.writeInt(id);
         parcel.writeString(title);
-        parcel.writeStringList(skills);
+        parcel.writeTypedList(skills);
         parcel.writeString(jobValidUntil);
         parcel.writeString(summary);
         parcel.writeParcelable(country, i);

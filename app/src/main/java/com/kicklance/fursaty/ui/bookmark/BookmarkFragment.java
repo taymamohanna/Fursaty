@@ -3,6 +3,7 @@ package com.kicklance.fursaty.ui.bookmark;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kicklance.fursaty.R;
 import com.kicklance.fursaty.models.Job;
+import com.kicklance.fursaty.models.ResponseData;
+import com.kicklance.fursaty.network.Network;
 import com.kicklance.fursaty.ui.company_detail.CompanyDetailsActivity;
 import com.kicklance.fursaty.ui.home.JobAdapter;
 import com.kicklance.fursaty.ui.job_details.JobDetailsActivity;
@@ -31,7 +34,13 @@ import com.kicklance.fursaty.utils.Constants;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class BookmarkFragment extends Fragment {
+
+    private RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -87,14 +96,16 @@ public class BookmarkFragment extends Fragment {
             }
         }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
-        RecyclerView recyclerView = view.findViewById(R.id.bookmark_recycler);
+        recyclerView = view.findViewById(R.id.bookmark_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        getFavoriteJobs();
+    }
 
+    private void populateUI() {
         List<Job> jobs = Constants.Jobs.getJobs()
                 .stream().filter(Job::isFavorite).collect(Collectors.toList());
         JobAdapter adapter = new JobAdapter(jobs, getJobClickListener());
         recyclerView.setAdapter(adapter);
-
     }
 
     private JobAdapter.OnJobInteractionListener getJobClickListener() {
@@ -113,5 +124,26 @@ public class BookmarkFragment extends Fragment {
                 startActivity(intent);
             }
         };
+    }
+
+    private void getFavoriteJobs() {
+        Network.getApiService().getFavoriteJobs(Constants.Headers.ACCESS_TOKEN).enqueue(new Callback<>() {
+            @Override
+            public void onResponse(@NonNull Call<ResponseData<List<Job>>> call, @NonNull Response<ResponseData<List<Job>>> response) {
+                if (response.isSuccessful() && response.body() != null && response.body().isStatus()) {
+                    List<Job> jobs = response.body().getData();
+                    recyclerView.setAdapter(new JobAdapter(jobs, getJobClickListener()));
+                } else {
+                    Log.w("TAG", "onResponse: Failed to load jobs ");
+                    populateUI();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ResponseData<List<Job>>> call, @NonNull Throwable t) {
+                Log.e("TAG", "onFailure: Error: " + t.getMessage(), t);
+                populateUI();
+            }
+        });
     }
 }
